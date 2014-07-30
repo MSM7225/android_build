@@ -19,14 +19,13 @@
 # build of the emulator, but all those aspects can be overridden
 # in inherited configurations.
 
+ifneq ($(BOARD_NO_HWCODECS),true)
+
 PRODUCT_PACKAGES := \
     drmserver \
     libdrmframework \
     libdrmframework_jni \
-    libfwdlockengine \
-    WAPPushManager
-
-ifneq ($(BOARD_NO_HWCODECS),true)
+    libfwdlockengine
 
 PRODUCT_PACKAGES := \
     VideoEditor
@@ -37,6 +36,9 @@ PRODUCT_PACKAGES += \
     libvideoeditor_core
     
 endif
+
+PRODUCT_PACKAGES := \
+    WAPPushManager
 
 # Additional settings used in all AOSP builds
 PRODUCT_PROPERTY_OVERRIDES := \
